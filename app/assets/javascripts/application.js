@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs 
 //= require bootstrap-sprockets
+//= require adminlte
 //= require jquery_mods
 //= require_tree .
 
