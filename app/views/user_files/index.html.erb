@@ -10,7 +10,7 @@
    </thead>
    
    <tbody>
-      <% @user_files.each do |user_file| %>
+      <% @user_files.where(user_id: current_user.id).each do |user_file| %>
          
          <tr>
             <td><%= user_file.name %></td>
@@ -38,12 +38,13 @@
                 <div class="panel-body">
                   <%= form_for @user_file, html: { multipart: true } do |f| %> 
                  <p><%= f.text_field (:name) , class: "form-control", placeholder:"Enter File Name: " %></p>
-           <p><%= f.text_field (:student_name) , class: "form-control", placeholder:"Enter Class/Student Name: " %></p>
+           <p><%= f.text_field (:student_name) , class: "form-control", placeholder:"Student Name: " %></p>
            <p><%= f.file_field (:attachment) %></p>
             </div>
             <div class="modal-footer">
             <div class="modal-title">
             </div> 
+             <%= f.hidden_field :user_id, :value => current_user.id %>
                 <span class = "btn btn-default "id="buttoon">Close</span>
                 <span><%= f.submit "Upload", :class => "btn btn-success" %></span> 
               </div>

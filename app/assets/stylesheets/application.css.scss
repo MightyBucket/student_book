@@ -14,7 +14,10 @@
  *= require_self
  *= require adminlte
  *= require skin-blue
+ *= require jquery.minicolors
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";

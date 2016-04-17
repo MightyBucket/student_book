@@ -12,7 +12,7 @@
         <div class="modal-footer">
           <div class="modal-title">
         </div>    
-        <%= f.hidden_field :user_id, cols: 10, rows: 1 , :value => current_user.id ,:readonly => true %>
+        <%= f.hidden_field :user_id, :value => current_user.id.to_s %>
         <div  class="btn btn-default" id="buttoon"> Close</div>
         <span><%= f.submit nil, :class => "btn btn-success" %></span>
       </div>

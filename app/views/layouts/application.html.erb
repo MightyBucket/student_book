@@ -4,7 +4,7 @@
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   
   <%= csrf_meta_tags %>
 
@@ -163,9 +163,9 @@
             <% flash.each do |name, msg| -%>
             <% msg = msg.split%>
             <%msg.each do |msgi| %>
-              <%= content_tag :div, raw("#{raw(msgi.join('<br>'))}"), class: "success" %>
-            <% end -%>
+              <%= content_tag :div, raw(msgi.join('<br>')), class: "success" %>
             <% end %>
+            <% end -%>
           </ul>
           <%= yield %>
 

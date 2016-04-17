@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs 
+//= require jquery.minicolors
 //= require bootstrap-sprockets
 //= require adminlte
 //= require jquery_mods

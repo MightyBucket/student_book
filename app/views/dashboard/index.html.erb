@@ -1,7 +1,7 @@
 <div class= "container" > 
 <h1> Dashboard</h1>
+<% classes = Group.where(user_id: "#{current_user.id}")%>
 
-<% classes = Group.all%>
 <% classes.each do |classes| %>
     <div class="col-lg-4 col-sm-6 col-xs-12 " >
         <div class="panel panel-<%=classes.color_t%>">

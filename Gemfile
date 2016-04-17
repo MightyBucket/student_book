@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'jquery-minicolors-rails'
 
 gem 'autoprefixer-rails'
 gem 'less-rails-bootstrap'
@@ -41,7 +42,11 @@ source 'https://rails-assets.org/' do
 end
 
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
+<<<<<<< HEAD
 gem 'adminlte'
+=======
+gem "font-awesome-rails"
+>>>>>>> 034555e
 
 # Use Unicorn as the app server
 # gem 'unicorn'

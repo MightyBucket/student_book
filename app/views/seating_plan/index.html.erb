@@ -71,25 +71,35 @@
 	    <span id="from_here"><%= submit_tag 'Submit', class:"btn btn-primary", value:"Submit", style: "width:100%" %></span>
 	<% end %>
 <% end %>
+</div>
+</div>
 
+<div class = "row">
+	
 <% if params["complete_seat_dimensions"] == "true" && params["complete_seat_placement"] != "true" %>
 	<%= form_tag  do %>
+
 		<% for i in 1..@available_seats%>
-		
-			<div class "col-6">
-				<%=label_tag "#{i}: Enter Seat Location i.e B3" %>
-			    <%=text_field_tag "seat#{i}"%>
-			</div> 
+			<div class = "col-sm-6 col-xs-12 col-md-4">
+			<div class="panel panel-default">
+			<div class="panel-heading">
+				<div><%=label_tag "Seat #{i}:" %> </div>
+			</div>
+			    <%=text_field_tag("seat#{i}",nil, class: 'form-control', placeholder: "Seat Position:", style: "width:100%")%>
+			</div>
+			</div>
 		<% end %>
 		<%= hidden_field_tag "complete_seat_dimensions", "true" %>
 		<%= hidden_field_tag "complete_seat_placement", "true" %>
 		<%=hidden_field_tag "seats_x", @seats_x-2%>
 	    <%=hidden_field_tag "seats_y", @seats_y-2%>
 	    <%=hidden_field_tag "available_seats", @available_seats%>
-		<div><%= submit_tag 'Submit Seats' %></div>
+	    <span id="from_here"><%= submit_tag 'Submit', class:"btn btn-primary", value:"Submit", style: "width:100%" %></span>
 	<% end %>
 <% end %>
 
+<div class = "row">
+<div class = "col-sm-4 col-xs-12 col-sm-offset-4">
 <% if params["complete_seat_placement"] == "true" && params["complete_class_details"] != "true"%>
 	<%= form_tag seating_plan_path , method: :post, :class => "form-inline" do %>
 		<%=text_field_tag "class_name",nil, class: 'form-control', placeholder: 'Class Name:', style: "width:100%"%>
@@ -145,17 +155,18 @@
 		<span id="from_here"><%= submit_tag 'Submit', class:"btn btn-primary", value:"Submit", style: "width:100%" %></span>	
 	<% end %>
 <% end %>
-
+</div>
 
 
 <% if params["complete_s_list"] == "true" && params["complete_gender_selection"] != "true"%>
 	<%= form_tag do %>
-		<div class="btn-group" data-toggle="buttons-radio">
-			<%= radio_button_tag :radio_option, "y", :style=>"display:none;" %>
-			<label for="radio_option_y" class="btn btn-primary">Sort By Gender</label>
-			<%= radio_button_tag :radio_option, "n", :style=>"display:none;" %>
-  			<label for="radio_option_n" class="btn btn-primary">Do Not</label>
+		<div class="btn-group">
+			<%= radio_button_tag("gender_option", "Y")%>
+			<label for="gender_option_Y" class="btn btn-primary">Sort By Gender</label>
+			<%= radio_button_tag("gender_option", "N") %>
+  			<label for="gender_option_N" class="btn btn-primary">Do Not</label>
 		</div>
+
 
 		<%= hidden_field_tag "complete_seat_dimensions", "true" %>
 		<%= hidden_field_tag "complete_seat_placement", "true" %>
@@ -186,10 +197,13 @@
 <% if params["complete_gender_selection"] == "true" && params["complete_process_selection"] != "true"%>
 	<%= form_tag do %>
 
-		<%= radio_button_tag("process_option", "m") %>
-		<%= label_tag("process_option_m", "Manually") %>
-		<%= radio_button_tag("process_option", "a") %>
-		<%= label_tag("process_option_a", "Automatically") %>
+
+		<div class="btn-group">
+		<%= radio_button_tag("process_option", "M")%>
+		<label for="process_option_M" class="btn btn-primary">Manual Mode</label>
+		<%= radio_button_tag("process_option", "A") %>
+			<label for="process_option_A" class="btn btn-primary">Automatic Mode</label>
+		</div>
 
 
 		<%= hidden_field_tag "complete_seat_dimensions", "true" %>
@@ -211,9 +225,10 @@
 			<%= hidden_field_tag "student_whitelist#{i}", params["student_whitelist#{i}"]%>
 		<% end %>
 
+		<%= hidden_field_tag "gender_option", params["gender_option"] %>
 		<%=hidden_field_tag "student_num", @student_num%>
 		<%=hidden_field_tag "class_name", @class_name%>
-		<div><%= submit_tag 'Submit'%></div>
+		<span id="from_here"><%= submit_tag 'Submit', class:"btn btn-primary", value:"Submit", style: "width:100%" %></span>
 	<% end %>
 <% end %>
 
@@ -253,9 +268,10 @@
 			<%=hidden_field_tag "student_num", @student_num%>
 			<%=hidden_field_tag "class_name", @class_name%>
 
+			<%= hidden_field_tag "gender_option", params["gender_option"] %>
 			<%= hidden_field_tag "process_option", params["process_option"] %>
 
-			<div><%= submit_tag 'Submit' %></div> 
+			<span id="from_here"><%= submit_tag 'Submit', class:"btn btn-primary", value:"Submit", style: "width:100%" %></span>
 		<% end %>
 	<% end %>
 

@@ -21,12 +21,34 @@ class SeatingPlanController < ApplicationController
 
 		@yes_seat = "\u25CB"
 		@no_seat = "\u25C9"
-		if @available_seats > (@seats_x-2) * (@seats_y-2)
-			flash[:alert] = []
-			flash[:alert] << "Number of seats is greater than possible seat placements"
-			params["complete_seat_dimensions"] = "false"
-		else 
-			@seat_layout = seat_layout(class_layout)
+
+		if params["complete_seat_dimensions"] == "true" 
+			if @seats_x == 2|| @seats_y == 2|| @available_seats == 2
+				flash[:alert] << "Cannot be blank"
+				params["complete_seat_dimensions"] = "false"
+			else
+			
+				if @available_seats > (@seats_x-2) * (@seats_y-2)
+					flash[:alert] << "Number of seats is greater than possible seat placements"
+					params["complete_seat_dimensions"] = "false"
+				else 
+					@seat_layout = seat_layout(class_layout)
+				end
+			end
+		end
+
+		if params["complete_gender_selection"] == "true"
+			if @gender_sort != "Y" && @gender_sort != "N"
+				flash[:alert] << "Must Select Option"
+				params["complete_gender_selection"] = "false"
+			end
+		end
+		
+		if params["complete_process_selection"] == "true"
+			if @decision != "M" && @decision != "A"
+				flash[:alert] << "Must Select Option"
+				params["complete_process_selection"] = "false"
+			end
 		end
 		
 
@@ -35,13 +57,13 @@ class SeatingPlanController < ApplicationController
 				@s_list = student_list_params(i)
 			end
 			@s_list_dup = @s_list.dup
+			
 			if not(@decision.nil?)
 			
 				if @decision.strip.upcase== 'M'
 					@positions = []
 					for i in 1..@student_num
 						@positions << params["student_seat#{i}"]
-						print @positions
 					end
 					if not(@positions.include?(nil))
 						@seat_layout = manual_list(@seat_layout, @s_list_dup)
