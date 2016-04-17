@@ -41,7 +41,7 @@ source 'https://rails-assets.org/' do
 end
 
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
-
+gem 'adminlte'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
