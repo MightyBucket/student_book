@@ -2,23 +2,19 @@
 <html>
 <head>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  
-  <%= csrf_meta_tags %>
-
-
-<style type="text/css">
-      .js #flash {display: none;}
+    <style type="text/css">
+          .js #flash {display: none;}
     </style>
     <script type="text/javascript">
-      $('html').addClass('js');
-      $(document).ready(function() {
-        // Stuff to do as soon as the DOM is ready
-      });  
-</script>
-          <meta charset="utf-8">
+          $('html').addClass('js');
+          $(document).ready(function() {
+            // Stuff to do as soon as the DOM is ready
+          });  
+    </script>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Student Book</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -30,29 +26,14 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-
-
-
-  </head>
-
-
-
 </head>
 
 <!DOCTYPE html>
-
-
-
   <head>
-       
-
-
     <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-
       <!-- Main Header -->
       <header class="main-header">
-
         <!-- Logo -->
         <a href="/dashboard" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -60,7 +41,6 @@
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Student</b>Book</span>
         </a>
-
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -70,8 +50,6 @@
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-         
-    
               <!-- User Account Menu -->
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->
@@ -86,12 +64,10 @@
                   <li class="user-header">
                     <img src="/assets/user" class="img-circle" alt="User Image">
                     <p>
-                      <%=current_user.name%> - CEO
-                      <small>Member since DEC. 2012</small>
+                      <%=current_user.name%>
+                      <small>Member since <%=current_user.created_at%></small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
-
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
@@ -99,8 +75,8 @@
                     </div>
                     <div class="pull-right">
 
-                      <a rel="nofollow" data-method="delete" href="/logout" class="btn btn-default btn-flat" ><i class="fa fa-sign-out fa-fw"> </i> Log out</a>
-                    
+                      <a rel="nofollow" data-method="delete" href="/logout" class="btn btn-default btn-flat" >
+                      <i class="fa fa-sign-out fa-fw"> </i> Log out</a>                
                     </div>
                   </li>
                 </ul>
@@ -137,11 +113,16 @@
           <ul class="sidebar-menu">
 
             <!-- Optionally, you can add icons to the links -->
-            <li><a href="<%=dashboard_index_path %>"><i class="fa fa-link"></i> <span>Dashboard</span><i class="fa fa-angle-left pull-right"></i></a></li></li>
-            <li><a href="<%=students_path %>"><i class="fa fa-link"></i> <span>Student List</span><i class="fa fa-angle-left pull-right"></i></a></li></li>
-            <li><a href="<%=user_files_path %>"><i class="fa fa-link"></i> <span>View Files</span> <i class="fa fa-angle-left pull-right"></i></a></li>
-            <li><a href="<%=new_user_file_path %>"><i class="fa fa-link"></i> <span>Upload File</span> <i class="fa fa-angle-left pull-right"></i></a></li>
-            <li><a href="<%=seating_plan_path %>"><i class="fa fa-link"></i> <span>Seating Plan</span> <i class="fa fa-angle-left pull-right"></i></a></li>
+            <li><a href="<%=dashboard_index_path %>"><i class="fa fa-link"></i> <span>Dashboard</span>
+            <i class="fa fa-angle-left pull-right"></i></a></li></li>
+            <li><a href="<%=students_path %>"><i class="fa fa-link"></i> <span>Student List</span>
+            <i class="fa fa-angle-left pull-right"></i></a></li></li>
+            <li><a href="<%=user_files_path %>"><i class="fa fa-link"></i> <span>View Files</span> 
+            <i class="fa fa-angle-left pull-right"></i></a></li>
+            <li><a href="<%=new_user_file_path %>"><i class="fa fa-link"></i> <span>Upload File</span> 
+            <i class="fa fa-angle-left pull-right"></i></a></li>
+            <li><a href="<%=seating_plan_path %>"><i class="fa fa-link"></i> <span>Seating Plan</span> 
+            <i class="fa fa-angle-left pull-right"></i></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -151,12 +132,8 @@
       <!-- Content Wrapper. Contains page content -->
 
       <div class="content-wrapper overlay" >
-        <!-- Content Header (Page header) -->
-   
-
         <!-- Main content -->
         <section class="content">
-
           <!-- Your Page Content Here -->
            <ul class= "nav nav-tabs">
 
@@ -178,18 +155,17 @@
         <!-- To the right -->
         <div class="pull-right">
           <strong>Copyright &copy; 2016 <span style="color:white">StudentBook Inc.</span>.</strong> All rights reserved.
-
         </div>
-        <!-- Default to the left -->
-  
       </div>
 
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark" >
         <!-- Create the tabs -->
         <ul class="nav nav-tabs nav-justified control-sidebar-tabs" >
-          <li class="active" ><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="glyphicon glyphicon-question-sign"></i></a></li>
+          <li class="active" ><a href="#control-sidebar-home-tab" data-toggle="tab">
+          <i class="fa fa-home"></i></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab">
+          <i class="glyphicon glyphicon-question-sign"></i></a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content"  >
@@ -201,24 +177,20 @@
                 <a href="javascript::;">
                   <i class="menu-icon fa fa-birthday-cake bg-red"></i>
                   <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Matthew Coursework</h4>
-                    <p>Submitted 2 hours ago.</p>
+                  <% user_file_last = UserFile.order(:created_at).last %>
+                    <h4 class="control-sidebar-subheading"><%=user_file_last.name%></h4>
+                    <p><%= user_file_last.created_at%></p>
                   </div>
                 </a>
               </li>
             </ul><!-- /.control-sidebar-menu -->
-
-
-
           </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
           <!-- Settings tab content -->
           <div class="tab-pane" id="control-sidebar-settings-tab">
             <h3> Help </h3>
-
-
-            <h2>Seating Plan</h2>
+            <h4>Seating Plan</h4>
             <p>Seat Row = max seat row length</p>
             <p>Seat Row = max column length</p>
 
@@ -226,30 +198,28 @@
 
             <img src = "/assets/seating_plan_maths" width="200px"/>
             <p><%= 'Black' %> = Unavailable seat<p> 
-            <p><%= 'White'%> = Available seat</p>
-
-        
+            <p><%= 'White'%> = Available seat</p>        
           </div><!-- /.tab-pane -->
         </div>
       </aside><!-- /.control-sidebar -->
+      
       <!-- Add the sidebar's background. This div must be placed
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
 
-    <!-- REQUIRED JS SCRIPTS -->
-
-    <!-- jQuery 2.1.4 -->
-
-
-    <!-- Optionally, you can add Slimscroll and FastClick plugins.
-         Both of these plugins are recommended to enhance the
-         user experience. Slimscroll is required when using the
-         fixed layout. -->
-
-
-
 </body>
 
          
+
+
+
+
+
+
+
+
+
+
+
 

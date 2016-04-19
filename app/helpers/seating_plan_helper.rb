@@ -1,14 +1,5 @@
 module SeatingPlanHelper
 
-	#implementation in the website
-	# All inputs would be done by forms
-	# This page would be a helper
-	# all functions can be called by the view
-	#implement a saving strategy
-	# backup student details to a file 
-	# Create a flow chart of this program before implementing to website
-
-
 	def class_layout
 		row_array = []
 		seat_array =  []
@@ -27,8 +18,6 @@ module SeatingPlanHelper
 	def seat_position_params(num)
 		params["seat#{num}"]
 	end
-
-	
 
 	def seat_layout(new_layout)
 		flash[:alert] = [] 
@@ -112,7 +101,10 @@ module SeatingPlanHelper
 			to_place = [true]
 
 			if (x_pos != 0 && x_pos != @seats_x && y_pos != 0 && y_pos != @seats_y)
-				if new_s_list[pos_left] == nil && new_s_list[pos_right] == nil && new_s_list[pos_down] == nil && new_s_list[pos_up] == nil && new_s_list[pos_nw] == nil && new_s_list[pos_ne] == nil && new_s_list[pos_se] == nil && new_s_list[pos_sw] == nil 
+				if (new_s_list[pos_left] == nil && new_s_list[pos_right] == nil && 
+					new_s_list[pos_down] == nil && new_s_list[pos_up] == nil && 
+					new_s_list[pos_nw] == nil && new_s_list[pos_ne] == nil && 
+					new_s_list[pos_se] == nil && new_s_list[pos_sw] == nil )
 					to_place = true
 				else
 					if new_s_list[pos_right] != nil
@@ -160,8 +152,7 @@ module SeatingPlanHelper
 				end
 			end
 
-			#coords delete first item
-
+		
 			if to_place == true
 				new_layout[y_pos][x_pos] = id
 				@coord.shift
@@ -242,56 +233,76 @@ module SeatingPlanHelper
 	def is_number?
 	  self.to_f == self
 	end
-end
 
-def boy_girl_sort(s_list_copy)
-	
-	loopy = true
-	gender_loop = "M"
-	s_list_copy = s_list_copy.dup.to_a
-	new_s_list = []
+	def boy_girl_sort(s_list_copy)
+		
+		loopy = true
+		gender_loop = "M"
+		s_list_copy = s_list_copy.dup.to_a
+		new_s_list = []
 
-	while loopy == true
-		i = 0
-		loopy2 = true
-		while loopy2 == true
-			if i < s_list_copy.length
-				if gender_loop == "M"
-					if s_list_copy[i][1]["gender"] == "M"
-						new_s_list << s_list_copy[i]
-						s_list_copy.delete_at(i)
-						loopy2 = false
-						gender_loop = "F"
+		while loopy == true
+			i = 0
+			loopy2 = true
+			while loopy2 == true
+				if i < s_list_copy.length
+					if gender_loop == "M"
+						if s_list_copy[i][1]["gender"] == "M"
+							new_s_list << s_list_copy[i]
+							s_list_copy.delete_at(i)
+							loopy2 = false
+							gender_loop = "F"
+						else
+							i += 1
+						end
 					else
-						i += 1
+						if s_list_copy[i][1]["gender"] == "F"
+							new_s_list << s_list_copy[i]
+							s_list_copy.delete_at(i)		
+							loopy2 = false
+							gender_loop = "M"
+						else
+							i += 1	
+						end
 					end
 				else
-					if s_list_copy[i][1]["gender"] == "F"
-						new_s_list << s_list_copy[i]
-						s_list_copy.delete_at(i)		
-						loopy2 = false
+					if gender_loop == "M"
+						gender_loop = "F"
+						loopy2= false
+					else 
 						gender_loop = "M"
-					else
-						i += 1	
+						loopy2 = false
 					end
-				end
-			else
-				if gender_loop == "M"
-					gender_loop = "F"
-					loopy2= false
-				else 
-					gender_loop = "M"
-					loopy2 = false
-				end
-			end	
+				end	
+			end
+			if s_list_copy.empty? == true 
+				loopy2 = false
+				loopy = false
+			end
 		end
-		if s_list_copy.empty? == true 
-			loopy2 = false
-			loopy = false
-		end
+
+		new_s_list = new_s_list.to_h
 	end
 
-	new_s_list = new_s_list.to_h
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

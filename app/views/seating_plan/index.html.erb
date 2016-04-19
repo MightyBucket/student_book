@@ -1,4 +1,3 @@
-
 <div class = "container">
 	<h1 align="center"> <%=@class_name%> Seating Plan </h1>
 </div>
@@ -131,10 +130,10 @@
 			<div><%=label_tag "Student #{i}:" %> </div>
 			</div>
 			<div class="panel-body">
-				<div><%=text_field_tag("student_name#{i}",nil, class: 'form-control', placeholder: 'Student Name:', style: "width:100%")%></div>
-				<div><%=text_field_tag "student_gender#{i}",nil, class: 'form-control', placeholder: 'Student Gender m/f:', style: "width:100%"%></div>
-				<div><%=text_field_tag "student_level#{i}",nil, class: 'form-control', placeholder: 'Priority Learning level 1-3', style: "width:100%"%></div>
-				<div><%=text_field_tag "student_whitelist#{i}",nil, class: 'form-control', placeholder: 'Student to not pair:', style: "width:100%"%></div>
+			<div><%=text_field_tag("student_name#{i}",nil, class: 'form-control', placeholder: 'Student Name:', style: "width:100%")%></div>
+			<div><%=text_field_tag "student_gender#{i}",nil, class: 'form-control', placeholder: 'Student Gender m/f:', style: "width:100%"%></div>
+			<div><%=text_field_tag "student_level#{i}",nil, class: 'form-control', placeholder: 'Priority Learning level 1-3',style: "width:100%"%></div>
+			<div><%=text_field_tag "student_whitelist#{i}",nil, class: 'form-control', placeholder: 'Student to not pair:', style: "width:100%"%></div>
 			</div>
 			</div>
 			</div>
@@ -232,16 +231,20 @@
 	<% end %>
 <% end %>
 
-	<% if params["complete_process_selection"] == "true" && params["complete_manual_student_placement"] != "true" && params["process_option"].strip.upcase == "M"%> 
+	<% if (params["complete_process_selection"] == "true" && 
+		params["complete_manual_student_placement"] != "true" && params["process_option"].strip.upcase == "M")%> 
 		<%= form_tag do %>
 
 			<% for i in 0..@student_num-1%>
 		
-			<div class "row">
-				<%=label_tag "#{i+1}: Enter Student Location for #{(@s_list.to_a)[i][1]["name"]}" %>
-			    <%=text_field_tag "student_seat#{i+1}"%>
+			<div class = "col-sm-6 col-xs-12 col-md-4">
+			<div class="panel panel-default">
+			<div class="panel-heading">
+				<div><%=label_tag "#{i+1}: Enter Student Location for #{(@s_list.to_a)[i][1]["name"]}" %></div>
 			</div>
-
+			    <%=text_field_tag "student_seat#{i+1}",nil, class: 'form-control', placeholder: "Seat Position:", style: "width:100%"%>
+			</div>
+			</div>
 			<% end %>
 
 
@@ -276,10 +279,22 @@
 	<% end %>
 
 </div>
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

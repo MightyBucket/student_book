@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs 
 //= require bootstrap-sprockets
-//= require adminlte
+//= require AdminLTE
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js
 //= require jquery_mods

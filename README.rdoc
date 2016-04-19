@@ -3,16 +3,37 @@
 
 
 DOCUMENTATION:
+MUST USE
 
+Programs prerequisites
+RVM
+Ruby version manager , or just install ruby versions manually
 * Ruby version 2.2.1
 
 * System dependencies
 
 * Configuration
+	if you want server to run, on local network
+	do
+	rails server -b "your local ip"
+	now on device address bar
+	"your local ip":3000
 
 * How to run the test suite
 
 * Deployment instructions
+	fork repository
+	copy to clipboard
+	Go to git bash if windows, or just terminal for mac
+
+	go to new folder location
+	eg
+	mkdir 'repositores'
+	cd repositores
+	git clone "paste-url"
+	gem install rails --no-ri --no-rdoc
+	bundle install
+	rails server
 
 * ...
 

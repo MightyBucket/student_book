@@ -1,8 +1,6 @@
 $(document).ready(function(){
 	$("#from_here").append($("#to_here"));
 });
-
-
 $(document).ready(function(){
     //Check to see if the window is top if not then display button
     $(window).scroll(function(){
@@ -12,13 +10,11 @@ $(document).ready(function(){
             $('.scrollToTop ').fadeOut();
         }
     });
-    
     //Click event to scroll to top
     $('.scrollToTop ').click(function(){
         $('html, body').animate({scrollTop : 0},800);
         return false;
     });
-    
 });
 
 
@@ -47,18 +43,5 @@ $(document).ready(function(){
         }, 500);
 
 
-    });
-});
-
-$(function() {
-    $('#cp8').colorpicker({
-        colorSelectors: {
-            'default': '#777777',
-            'primary': '#337ab7',
-            'success': '#5cb85c',
-            'info': '#5bc0de',
-            'warning': '#f0ad4e',
-            'danger': '#d9534f'
-        }
     });
 });

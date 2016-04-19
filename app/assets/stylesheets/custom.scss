@@ -3,26 +3,20 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
-
 .panel-pink {
     border-color: #ff00e6;
 }
-
 .panel-pink .panel-heading {
     border-color: #ff00e6;
     color: #fff;
     background-color: #ff00e6;
 }
-
 .panel-pink a {
     color: #CC33FF;
 }
-
 .panel-pink a:hover {
     color: #ff00e6;
 }
-
 .content{
 	height: 100%;
 }
@@ -30,75 +24,61 @@
 .panel-purple {
     border-color: #9516b5;
 }
-
 .panel-purple .panel-heading {
     border-color: #9516b5;
     color: #fff;
     background-color: #9516b5;
 }
-
 .panel-purple a {
     color: #CC33FF;
 }
-
 .panel-purple a:hover {
     color: #9516b5;
 }
-
 .content{
   height: 100%;
 }
+
 .panel-blue {
     border-color: #3c8dbc;
 }
-
 .panel-blue .panel-heading {
     border-color: #3c8dbc;
     color: #fff;
     background-color: #3c8dbc;
 }
-
 .panel-blue a {
     color: #3c8dbc;
 }
-
 .panel-blue a:hover {
     color: #3c8dbc;
 }
-
 .content{
   height: 100%;
 }
+
 .panel-orange {
     border-color: #fc9700;
 }
-
 .panel-orange .panel-heading {
     border-color:#fc9700;
     color: #fff;
     background-color: #fc9700;
 }
-
 .panel-orange a {
     color: #CC33FF;
 }
-
 .panel-orange a:hover {
     color: #fc9700;
 }
-
 .content{
   height: 100%;
 }
 
-
 td, th{ text-align: center; }
-
 .content {
   padding-bottom: 2
 }
-
-
 
 @mixin make-grid($class) {
   @include float-grid-columns($class);
@@ -108,3 +88,5 @@ td, th{ text-align: center; }
   @include loop-grid-columns($grid-columns, $class, offset);
   @include loop-grid-columns($grid-columns, $class, offset-right);
 }
+
+
